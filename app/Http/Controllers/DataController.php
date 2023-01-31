@@ -20,9 +20,8 @@ class DataController extends Controller
         $data = DB::table('data')
         
         ->join('ppi_table','data.p_aktivasi_node_id','=','ppi_table.spa')
-        // ->join('vendor','data.p_aktivasi_node_id','=','vendor.nama_mitra')
         ->paginate(20);
-        // dd($data);
+      
        return view('tampil', ['data' => $data]);
         
       
@@ -56,10 +55,6 @@ class DataController extends Controller
         return view('detail', ['data' => $data]);
     }
 
-    public function export()
-    {
-        return Excel::download(new dataExport,'data.xlsx');
-    }
 
 
 
@@ -121,10 +116,9 @@ class DataController extends Controller
 
     public function updateSurvey(Request $req,$id)
     {
-        // return $req->file('file')->store('public');
-        // dd($req);
+      
         $this->validate($req,[
-            // 'rab'=>'required',
+          
             'file'=>'required|mimes:zip,rar,pdf,jpg,png|max:2048'
         ]);
 
@@ -136,8 +130,6 @@ class DataController extends Controller
         $fileModel->survey_name = time()."_".$file->getClientOriginalName();
         $fileModel->survey_path = $filePath;
         $fileModel->save();
-        // $tujuan_upload = 'data_survey';
-        // $file->move($tujuan_upload,$fileModel);
         
          $updateSurvey=Survey::where('id','=',$id)->update([
             'rab'=>$req->rab,
@@ -148,49 +140,8 @@ class DataController extends Controller
             return redirect('/data')->with('sukses','Data Survey Berhasil Diupdate');
         }
 
-
-        // $updateSurvey=Survey::where('id','=',$id)->update([
-        //     'rab'=>$req->rab,
-        //     'file'=>$req->file,
-        // ]);
-        
-        // $fileModel = new Survey;
-
-        // if($req->file()) {
-        //     $fileName = time().'_'.$req->file->getClientOriginalName();
-        //     $filePath = $req->file('file')->storeAs('Survey', $fileName, 'public');
-
-        //     $fileModel->survey_name = time().'_'.$req->file->getClientOriginalName();
-        //     $fileModel->survey_path = '/storage/' . $filePath;
-        //     $fileModel->save();
-
-        //     return back()
-        //     ->with('success','File has been uploaded.')
-        //     ->with('file', $fileName);
-        // }
-        
     }
 
-    // public function tescomView($id)
-    // {
-    //     $data = Tescom::where('id', '=', $id)->get();
-    //     return view('tampil', ['data' => $data]);
-    // }
 
-    // public function updateTescom(Request $req,$id)
-    // {
-    // //    return $req->file('file')->store('public');
-
-    //     $updateSurvey=Tescom::where('id','=',$id)->update([
-    //         'p_aktivasi_node_id' => $req->p_aktivasi_node_id,
-
-    //         // 'file' => 'file|mimes:jpeg,png'
-
-    //     ]);
-
-    //     if ($updateSurvey){
-    //         return redirect('/data')->with('sukses','Data Berhasil Diupdate');
-    //     }
-    // }
 
 }

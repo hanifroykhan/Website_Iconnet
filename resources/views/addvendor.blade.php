@@ -72,12 +72,8 @@
                   <h4 class="card-title">Data Seluruh Vendor</h4>
                   <p class="card-category">Tabel Data Seluruh Vendor</p>
                 </div>
-                <div class="card-body">
-                @if(session('sukses'))
-                <div class="alert alert-success">
-                  {{session('sukses')}}
-                </div>
-                @endif
+       
+              
                 <div class="table-responsive">
                   <table class="table table-hover table-striped">
                       <thead class=" text-primary">

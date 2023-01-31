@@ -32,38 +32,5 @@ class MapsController extends Controller
 
         return response()->json($model);
     }
-// public function findlocation(Request $req)       
-// {
-//     $a = Input::get('a');
-//     $location = Odp::where('Tikor_ODP','LIKE','%'.$a.'%')->get();
 
-//     if(count($location) > 0){
-//         return view  ('maps')->withDetails($location)->withQuery($a);
-//     }else {
-//         return view('maps')->withMessage('No Details Found. Try to Search again!');
-// }
-// }
-    // public function tambahKoor(Request $req){
-    //     $this->validate($req,[
-    //         'Nama_ODP'=>'required',
-    //         'longi'=>'required',
-    //         'lat'=>'required'
-    //     ]);
-
-    //     $tambah=Odp::create([
-    //         'Nama_ODP'=>$req->Nama_ODP,
-    //         'longi'=>$req->longi,
-    //         'lat'=>$req->lat
-    //     ]);
-    //     if($tambah){
-    //         return redirect('/maps')->with('sukses',"Data Berhasil Ditambahkan");
-    //     }
-    // }
-    // public function import(Request $req){
-    //     $this->validate($req, ['maps' => 'required']);
-    //     $path = $req->file('maps');
-
-    //     Excel::import(new Maps, $path);
-    //     return view('/datamap')->with('sukses','Data Maps Berhasil Ditambahkan');
-    // }
 }

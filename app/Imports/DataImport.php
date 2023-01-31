@@ -109,9 +109,9 @@ class DataImport implements ToCollection, WithCalculatedFormulas
                     'spa'=>$value[0]
                 ]);
 
-                Vendor::create([
-                    'nama_mitra'=>$value[0]
-                ]);
+                // Vendor::create([
+                //     'nama_mitra'=>$value[0]
+                // ]);
                 DB::table('data')->insert([
 
                     'p_aktivasi_node_id' => $value[0],

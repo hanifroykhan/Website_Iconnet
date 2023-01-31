@@ -98,7 +98,6 @@ body {
                         </form>
                     </table>
 
-                    <!-- <a href="/export" class="btn btn-success my-3" target="_blank">Export Excel</a> -->
                     <div class="topnav">
                   <div class="search-container">
               <form  action="/caridatatable" method="get" class="navbar-search form-inline mr-sm-3" >
@@ -116,10 +115,7 @@ body {
               </div>
 
                    
-	                <!-- <form action="/caridatatable" method="get">
-		                    <input type="text" class="input-group input-group-alternative input-group-merge" name="caridata" placeholder="Cari Data" value="{{ old('caridata') }}">
-		                    <input type="submit" value="CARI">
-	                </form> -->
+	           
 
                 
 
@@ -146,7 +142,7 @@ body {
                                     <th>PPI</th>
                                     <th>Vendor</th>
                                     <th>Aksi</th>
-                                    <!-- <th>Documentation</th> -->
+                               
                                 </thead>
                                 <tbody>
                                     @foreach($data as $a)
@@ -176,12 +172,7 @@ body {
 
                                         </td>
                                         
-                                        <!-- <td>
-                                            
-                                            <a href="/surveyView/{{$a->id}}/survey" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#surveyModal{{$a->id}}" >Survey</a>
-                                            <a href="/tescomView/{{$a->id}}/tescom" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#tescomModal{{$a->id}}" >Tescom</a>
-                                            <a href="/docView/{{$a->id}}/doc" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#docsModal{{$a->id}}" >Document</a>
-                                        </td> -->
+                                    
                                        
                                         </tr>
                                         
